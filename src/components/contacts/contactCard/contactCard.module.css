@@ -1,11 +1,7 @@
-:root{
-    --dark-gray: #4A4A4A;
-    --light-gray: #828282;
-    --lighter-gray: #dadada;
-    --shadow-color:rgba(0,0,0,0.1);
-}
 
   .card {
+    transition: ease-in-out;
+    transition-duration: 200ms;
     background:white;
     box-shadow: 2px 2px 6px var(--shadow-color) ;
     width: 100%;

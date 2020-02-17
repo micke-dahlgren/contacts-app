@@ -1,28 +1,36 @@
 import React from "react"
 import layoutStyles from "./layout.module.css";
-import Modal from './modal/modal';
+import FormWindow from '../formWindow/formWindow';
 import Header from '../header/header';
 import Contacts from '../contacts/contactsContainer';
 
 const Layout = (props) => (    
 
   <div className={layoutStyles.container}>
-      {props.modal ? <Modal toggleModal={props.toggleModal}/> : <div></div>}
+      
+      {props.formWindow !== 'closed' ? 
+      <FormWindow 
+        setFormWindow={props.setFormWindow} 
+        addNewContact={props.addNewContact} 
+        updateContact={props.updateContact} 
+        formWindow={props.formWindow}
+        contactData={props.contactData}/> 
+      : 
+      <div></div>
+      }
+
       <Header 
         activePage={props.activePage} 
-        setPage={props.setPage} 
-        toggleModal={props.toggleModal}
+        setActivePage={props.setActivePage} 
+        setFormWindow={props.setFormWindow}
       />
-      
+
       <Contacts 
-        getContactItems={props.getContactItems} 
+        getContactItems={props.getContactItems}
       />
+
   </div>
 
 )
 
 export default Layout;
-/*
-  <Header currentPage={props.currentPage}/>
-  <Contacts toggleModal={() =>{this.props.toggleModal()}} phoneBookData={props.phoneBookData} currentPage={props.currentPage}/>
-*/

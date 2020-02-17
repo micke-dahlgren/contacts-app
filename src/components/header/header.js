@@ -8,18 +8,29 @@ const Header = (props) => (
         </div>
         <div className={headerStyles.linkContainer}>
             <div 
+                role = "link"
                 className= {(props.activePage === "alla") ? headerStyles.link__current : headerStyles.link }
-                onClick= {() => {props.setPage("alla")}}
+                onClick= {() => {props.setActivePage("alla")}}
+                onKeyDown={() => {props.setActivePage("alla")}}
                 >Alla</div>
             <div 
+                role = "link"
                 className= {(props.activePage === "vänner") ? headerStyles.link__current : headerStyles.link }
-                onClick= {() => {props.setPage("vänner")}}
+                onClick= {() => {props.setActivePage("vänner")}}
+                onKeyDown={() => {props.setActivePage("vänner")}}
                 >Vänner</div>
             <div 
+                role = "link"
                 className= {(props.activePage === "kollegor") ? headerStyles.link__current : headerStyles.link }                
-                onClick= {() => {props.setPage("kollegor")}}
+                onClick= {() => {props.setActivePage("kollegor")}}
+                onKeyDown={() => {props.setActivePage("kollegor")}}
                 >Kollegor</div>
-            <div className="customButton_primary" onClick={() =>{props.toggleModal()}}>Lägg till</div>
+            <div 
+                role = "button"
+                className="btn btn--primary" 
+                onClick={() =>{props.setFormWindow('open','')}}
+                onKeyDown={() =>{props.setFormWindow('open','')}}
+                >Lägg till</div>
         </div>     
     </div>
 )

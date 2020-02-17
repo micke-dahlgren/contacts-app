@@ -1,16 +1,12 @@
-:root{
-    --dark-gray: #4A4A4A;
-    --light-gray: #828282;
-    --lighter-gray: #dadada;
-    --shadow-color:rgba(0,0,0,0.1);
-}
+
+
+
 .container{
   position: absolute;
   left: 40%;
   margin-top:4vw;
-
   border-radius: 8px;
-padding: 2vw;
+  padding: 2vw;
   background-color:#fff;
   opacity:1.0;
   z-index:1004;
@@ -18,19 +14,14 @@ padding: 2vw;
   flex-direction: column;
   text-align:center;
 }
-.card {
-  background:white;
-
-  box-shadow: 2px 2px 6px var(--shadow-color) ;
-  width: 100%;
-  border-radius: 4px;
-  margin-bottom: 1vw;
-  padding-left: 1.5vw;
-}
 
 .buttonContainer{
   background-color: transparent;
   display: flex;
   flex-direction: row;  
+}
+
+.warning{
+  color:red;
 }
 
