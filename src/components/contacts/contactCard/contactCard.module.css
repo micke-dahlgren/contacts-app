@@ -1,0 +1,52 @@
+:root{
+    --dark-gray: #4A4A4A;
+    --light-gray: #828282;
+    --lighter-gray: #dadada;
+    --shadow-color:rgba(0,0,0,0.1);
+}
+
+  .card {
+    background:white;
+    box-shadow: 2px 2px 6px var(--shadow-color) ;
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1vw;
+    padding-left: 1.5vw;
+  }
+  .columns{
+    display: flex;
+    flex-direction: row;
+  }
+  .name{
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    width: 30%;
+    font-size: var(--normal-font-size);
+    font-weight:600;
+    letter-spacing: 1px;
+    text-align: left;
+    padding-right: 1vw;
+    margin:0px;
+  }
+  .company{
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    width: 30%;
+    font-size: var(--normal-font-size);
+    font-weight:500;
+    color: var(--light-gray);
+    text-align: left;
+    padding-right: 1vw;
+    margin:0px;
+  }
+
+  .options{
+    cursor: pointer;
+    font-size:var(--normal-font-size);
+    font-weight:800;
+    letter-spacing: 1px;
+    color: var(--light-gray);
+    float:right;
+    padding-right: 1.5vw;
+    margin:0px;
+  }

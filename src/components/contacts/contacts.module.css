@@ -1,0 +1,16 @@
+:root{
+    --dark-gray: #4A4A4A;
+    --light-gray: #828282;
+    --lighter-gray: #dadada;
+    --shadow-color:rgba(0,0,0,0.1);
+}
+.container {
+    background-color: rgba(255,255,255,0.7);
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    overflow-y:scroll;
+    max-height:60vmin;
+  }
+  
