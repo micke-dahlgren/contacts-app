@@ -16,7 +16,7 @@ const Layout = (props) => (
         formWindow={props.formWindow}
         contactData={props.contactData}/> 
       : 
-      <div></div>
+      <div />
       }
 
       <Header 
@@ -26,7 +26,7 @@ const Layout = (props) => (
       />
 
       <Contacts 
-        getContactItems={props.getContactItems}
+        getContactCards={props.getContactCards}
       />
 
   </div>
@@ -34,3 +34,5 @@ const Layout = (props) => (
 )
 
 export default Layout;
+
+/* HTML Formatted */

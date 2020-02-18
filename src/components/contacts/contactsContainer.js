@@ -2,10 +2,11 @@ import React from "react"
 import contactsStyles from "./contacts.module.css";
 
 const Contacts = (props) => (
-  <div className={contactsStyles.container}>
-    {props.getContactItems()}
-  </div>
+  <ul className={contactsStyles.container}>
+    {props.getContactCards()}
+  </ul>
 )
 
 export default Contacts;
 
+/* HTML Formatted */

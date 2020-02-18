@@ -15,11 +15,22 @@ html{
   background: #cfd9df;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #cfd9df, #e2ebf0);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #cfd9df, #e2ebf0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  
   font-family: 'Roboto', sans-serif;
   color: var(--dark-gray);
+  
 }
 
+li, a, button{
+  all:unset;
+}
+ul{
+  margin:0px;
+  padding:0px;
+}
 /*==========
  SCROLLBAR 
 ==========*/
@@ -48,24 +59,12 @@ html{
 /*==========
   BUTTONS
 ==========*/
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
 
 .btn{
     border-radius: 2px;
     float:right;
     font-size: var(--normal-font-size);
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: 0.5vw 1vw;
     cursor: pointer;
     margin-bottom: 1vw;
     margin-right: 4vw;

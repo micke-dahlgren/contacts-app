@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from './layout/layout';
-import phoneBookJSON from "../data/PhoneBook.json";
+// import phoneBookJSON from "../data/PhoneBook.json";
 import ContactCard from './contacts/contactCard/contactCard';
-import {generateId} from "./helperFunctions/helperFunctions";
+import {generateId, fetchJSON, _addContact,_updateContact, _deleteContact} from "./contactFunctions/contactFunctions";
 
 class Container extends React.Component  {
 
@@ -12,11 +12,15 @@ class Container extends React.Component  {
             activePage: "alla",
             formWindow: 'closed',
             contactData: [],
-            phoneBookData: phoneBookJSON
+            phoneBookData: []
         };
     }
 
-    
+    componentDidMount(){
+      let phoneBookData = fetchJSON();
+      this.setState({phoneBookData})
+    }
+
     setFormWindow = (toggle, id) => {
       let formWindow = this.state.formWindow;
       if(toggle === 'open'){
@@ -41,42 +45,17 @@ class Container extends React.Component  {
     }
 
     addNewContact = (contactData) =>{
-        let phoneBookData = [...this.state.phoneBookData];
-          
-        phoneBookData.unshift({
-            _id:generateId(),
-            name:contactData.name,
-            company:contactData.company,
-            phone:contactData.phone,
-        })
+        let phoneBookData = _addContact([...this.state.phoneBookData], contactData);
         this.setState({phoneBookData});
     }
 
-    updateContact = (newContactData) =>{
-      let phoneBookData = [...this.state.phoneBookData];
-      let id = this.state.contactData._id;
-      //Find index of specific object using findIndex method.    
-      let index = phoneBookData.findIndex((item => item._id === id));
-
-      //Update object's name property.
-      phoneBookData[index].name = newContactData.name;
-      phoneBookData[index].company = newContactData.company;
-      phoneBookData[index].phone = newContactData.phone;
-
+    updateContact = (contactData) =>{
+      let phoneBookData= _updateContact([...this.state.phoneBookData], contactData, this.state.contactData._id);
       this.setState({phoneBookData});
-
   }
 
     deleteContact = (contactId) => {
-      let phoneBookData = [...this.state.phoneBookData];
-
-      phoneBookData.forEach(item =>{
-        if(item._id === contactId){
-          phoneBookData.splice(phoneBookData.indexOf(item),1);
-        }
-      })
-
-
+      let phoneBookData = _deleteContact([...this.state.phoneBookData], contactId);
       this.setState({phoneBookData});
     }
 
@@ -88,19 +67,19 @@ class Container extends React.Component  {
       this.setState({contactData});
     }
 
-    getContactItems = ()  => {
+    getContactCards = ()  => {
 
         let contactCards = [];
         this.state.phoneBookData.forEach(item =>
           {
             if(this.state.activePage === "alla"){
-              contactCards.push(<ContactCard key={item._id} contactData={item}  setFormWindow={this.setFormWindow} deleteContact={this.deleteContact}/>)
+              contactCards.push(<li key={item._id + "_li"}><ContactCard key={item._id} contactData={item}  setFormWindow={this.setFormWindow} deleteContact={this.deleteContact}/></li>)
             }else if(this.state.activePage === "vänner"){
               if(item.company === ""){
-                contactCards.push(<ContactCard key={item._id} contactData={item}  setFormWindow={this.setFormWindow} deleteContact={this.deleteContact}/>)
+                contactCards.push(<li key={item._id + "_li"}><ContactCard key={item._id} contactData={item}  setFormWindow={this.setFormWindow} deleteContact={this.deleteContact}/></li>)
               }
             }else if(item.company !== ""){
-              contactCards.push(<ContactCard key={item._id} contactData={item}  setFormWindow={this.setFormWindow} deleteContact={this.deleteContact}/>)
+              contactCards.push(<li key={item._id + "_li"}><ContactCard key={item._id} contactData={item}  setFormWindow={this.setFormWindow} deleteContact={this.deleteContact}/></li>)
             }
         }
         
@@ -114,7 +93,7 @@ class Container extends React.Component  {
           <Layout 
             {...this.state} 
             setActivePage={this.setActivePage} 
-            getContactItems={this.getContactItems}
+            getContactCards={this.getContactCards}
             setFormWindow={this.setFormWindow}
             addNewContact={this.addNewContact}
             updateContact={this.updateContact}
@@ -122,4 +101,7 @@ class Container extends React.Component  {
         )
     }
 }
+
 export default Container;
+
+/* HTML Formatted */

@@ -1,6 +1,8 @@
 import React from "react";
 import ContextStyles from './contextMenu.module.css';
-class Container extends React.Component  {
+import {generateId} from "../contactFunctions/contactFunctions";
+
+class ContextMenu extends React.Component  {
 
     constructor(props) {
         super(props);
@@ -14,22 +16,23 @@ class Container extends React.Component  {
       let menuOpen = this.state.menuOpen;
       this.setState({
         menuOpen: !menuOpen,
-
       })
-
     }
+
 
     getItems = (itemArray) =>{
         let items = [];
         let i = 0;
         itemArray.forEach(item => {
             items.push(
-            <div
-                role="menuItem"
-                className={ContextStyles.item} 
-                onClick={item.onClick}
-                onKeyDown={item.onClick}
-            >{item.label}</div>
+            <li key={generateId()}>
+                <button
+                    key={generateId()}
+                    className={ContextStyles.item}
+                    onClick={item.onClick}
+                >{item.label}
+                </button>
+            </li>
             )
             i -= 1;
         });
@@ -39,35 +42,33 @@ class Container extends React.Component  {
     render() {
         return (
             <div>
-                <div 
-                    role="button"
-                    className={ContextStyles.btnContainer}
+                <button 
+                    className={ContextStyles.context__btn}
                     onClick = {() => {this.toggleContextMenu()} }
-                    onKeyDown = {() => {this.toggleContextMenu()} }
-                >...</div>
-            {this.state.menuOpen ? 
-                    <div>
-                        
-                        <div 
-                            role="dialog"
-                            className={ContextStyles.menuContainer}
-                            onClick = {() => {this.toggleContextMenu()} }
-                            onKeyDown = {() => {this.toggleContextMenu()} }
-                        >
-                            {this.getItems(this.props.items)}
+                >...
+                </button>
+                {this.state.menuOpen ? 
+                        <div>
+                            
+                            <ul  
+                                className={ContextStyles.menuContainer}
+                                onClick = {() => {this.toggleContextMenu()} }
+                            >
+                                {this.getItems(this.props.items)}
+                            </ul>
+
+                            <div 
+                                className="overlay transparent" 
+                                onClick={() => {this.toggleContextMenu()}}
+                            />
                         </div>
-                        <div 
-                            role="dialog"
-                            className="overlay transparent" 
-                            onClick={() => {this.toggleContextMenu()}}
-                            onKeyDown = {() => {this.toggleContextMenu()} }
-                        />
-                    </div>
-                : 
-                <div></div>
-            }
+                    : 
+                        <div />
+                }
             </div>
         )
     }
 }
-export default Container;
+export default ContextMenu;
+
+/* HTML Formatted */
