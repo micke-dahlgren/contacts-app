@@ -1,5 +1,28 @@
 
+  
+  /*
   .card {
+    background:white;
+    box-shadow: 2px 2px 6px var(--shadow-color) ;
+  }
+  .columns{
+    background-color: tomato;
+  }
+  .name{
+    text-align: left;
+  }
+  .company{
+
+    text-align: left;
+
+  }
+
+  .options{
+    cursor: pointer;
+  }
+*/
+  /*
+.card {
     transition: ease-in-out;
     transition-duration: 200ms;
     background:white;
@@ -46,3 +69,4 @@
     padding-right: 1.5vw;
     margin:0px;
   }
+  */

@@ -1,33 +1,61 @@
+
+/*============
+  GLOBAL VARS
+============*/
 :root{
-    --dark-gray: #4A4A4A;
-    --light-gray: #828282;
-    --lighter-gray: #dadada;
-    --shadow-color:rgba(0,0,0,0.1);
-    --dark-white: rgb(230, 230, 230);
-    --call-to-action:  #515ada;
-    --warning:  rgb(221, 33, 33);
-    --title-font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1920 - 300)));
-    --link-font-size: calc(8px + (18 - 8) * ((100vw - 300px) / (1920 - 300)));
-    --normal-font-size:  calc(8px + (16 - 8) * ((100vw - 300px) / (1920 - 300)));
+  /* COLORS*/
+    --gradient1:#cfd9df;
+    --gradient2:#e2ebf0;
+    --background:white;
+    --background-variant:rgba(255,255,255,0.7);
+    --primary:  #515ada;
+    --primary-variant:  #32388f;
+    --secondary:  #188fd4;
+    --secondary-variant:  #0d689c;
+    --disabled:  #cfcfcf;
+    --onDisabled:  #a3a3a3;
+    --onPrimary:white;
+    --onSecondary:white;
+    --onError:white;
+    --onBackground:rgb(48, 48, 48);
+    --error:  rgb(221, 33, 33);
+    --shadow:rgba(0,0,0,0.1);
+    --transparent:rgba(0,0,0,0.0);
+
+    /* SIZING - LAYOUT */
+    --outer__margin-col: 10vw;
+    --outer__margin-row: 10vh;
+    --inner__padding-col: 3rem;
+    --inner__padding-row: 2.5rem;
+    --header__height: 8rem;
+    --main__minHeight: 300px;
+    --main__minWidth: 300px;
+    --main__maxHeight: calc(
+      100vh - (2*var(--outer__margin-row) + 2*(var(--inner__padding-row)))
+    );
+
+
+    /* SIZING - CONTENT*/
+    --content__maxHeight: calc(
+      100vh - ( var(--header__height) + (2*var(--outer__margin-row) + 2*(var(--inner__padding-row))))
+    );
+    --content__padding-row: 1rem;
+    --content__padding-col: 2rem;
 }
 
 html{
-  background: #cfd9df;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #cfd9df, #e2ebf0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #cfd9df, #e2ebf0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: var(--gradient1);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,var(--gradient1), var(--gradient2));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,var(--gradient1), var(--gradient2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  
+  overflow: hidden;
   font-family: 'Roboto', sans-serif;
   color: var(--dark-gray);
   
 }
-
-li, a, button{
-  all:unset;
-}
-ul{
+ul, h1{
   margin:0px;
   padding:0px;
 }
@@ -47,13 +75,13 @@ ul{
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--dark-white);
+  background: var(--onPrimary);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--lighter-gray)
+  background: var(--primary)
 }
 
 /*==========
@@ -61,34 +89,31 @@ ul{
 ==========*/
 
 .btn{
-    border-radius: 2px;
-    float:right;
-    font-size: var(--normal-font-size);
-    padding: 0.5vw 1vw;
+    all:unset;
+    border-radius: 0.4rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    margin-bottom: 1vw;
-    margin-right: 4vw;
   }
 
   .btn--primary{
-    background-color:var(--call-to-action);
-    color:white;
+    background-color:var(--primary);
+    color:var(--onPrimary);
   }
 
  .btn--delete{
-    background-color:var(--warning);
-    color: white
+    background-color:var(--error);
+    color:var(--onError);
   }
 
   .btn--secondary{
-    background-color:var(--dark-white); 
-    color: var(--dark-gray);
+    background-color:var(--secondary); 
+    color: var(--onSecondary);
   }
 
   .btn--inactive{
     cursor:default;
-    background-color:var(--dark-gray); 
-    color: var(--light-gray);
+    background-color:var(--disabled);
+    color:var(--onDisabled);
   }
 
 /*==========
@@ -105,10 +130,21 @@ ul{
     top: 0px;
   }
 
+
 /*==========
   UTILITY
 ==========*/
 
   .transparent{
     background-color: transparent;
+  }
+
+  .card{
+    /*overflow hidden makes sure children don't override border-radius*/
+    overflow:hidden;
+    
+    box-shadow: 2px 2px 20px 2px var(--shadow);
+    border-radius: 16px;
+    padding:0px;
+    margin:0px;
   }

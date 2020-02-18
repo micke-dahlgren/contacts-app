@@ -1,6 +1,21 @@
 
 
 
+/*
+.container{
+  position: absolute;
+  border-radius: 8px;
+  background-color:#fff;
+  z-index:1004;
+}
+
+.buttonContainer{
+  background-color: transparent;
+}
+*/
+
+
+/*
 .container{
   position: absolute;
   left: 40%;
@@ -21,7 +36,5 @@
   flex-direction: row;  
 }
 
-.warning{
-  color:red;
-}
 
+*/
