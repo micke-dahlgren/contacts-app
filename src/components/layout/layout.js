@@ -45,5 +45,3 @@ const Layout = (props) => (
 )
 
 export default Layout;
-
-/* HTML Formatted */

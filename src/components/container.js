@@ -1,8 +1,7 @@
 import React from 'react';
 import Layout from './layout/layout';
-// import phoneBookJSON from "../data/PhoneBook.json";
 import ContactCard from './contacts/contactCard/contactCard';
-import {generateId, fetchJSON, _addContact,_updateContact, _deleteContact} from "./contactFunctions/contactFunctions";
+import { fetchJSON, _addContact,_updateContact, _deleteContact} from "./contactFunctions/contactFunctions";
 
 class Container extends React.Component  {
 
@@ -104,4 +103,3 @@ class Container extends React.Component  {
 
 export default Container;
 
-/* HTML Formatted */

@@ -10,8 +10,13 @@
     font-weight: 600;
 
     letter-spacing: 4px;
-}
 
+    position: relative;
+}
+.parent{
+    background-color: aqua;
+    position: relative;
+}
 .menuContainer{
     position: absolute;
     z-index:1004;
@@ -35,29 +40,3 @@
 }
 
 
-
-/*
-
-
-
-.menuContainer{
-    position: absolute;
-    z-index:1004;
-    background-color:white;
-    box-shadow: 2px 2px 6px var(--shadow-color) ;
-}
-
-.item{
-    transition: ease-in-out;
-    transition-duration: 200ms;
-    width:100%;
-    height: 20px;
-    padding: 4px 0px;
-    
-}
-
-.item:hover{
-    background-color: var(--call-to-action);
-    color:white;
-}
-*/

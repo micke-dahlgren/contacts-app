@@ -22,7 +22,7 @@ class ContextMenu extends React.Component  {
 
     getItems = (itemArray) =>{
         let items = [];
-        let i = 0;
+        
         itemArray.forEach(item => {
             items.push(
             <li key={generateId()}>
@@ -34,7 +34,7 @@ class ContextMenu extends React.Component  {
                 </button>
             </li>
             )
-            i -= 1;
+        
         });
         return items;
     }
@@ -42,12 +42,15 @@ class ContextMenu extends React.Component  {
     render() {
         return (
             <div>
-                <button 
-                    className={ContextStyles.context__btn}
-                    onClick = {() => {this.toggleContextMenu()} }
-                >...
-                </button>
-                {this.state.menuOpen ? 
+
+            
+                <div  className={ContextStyles.parent}>
+                    <button 
+                        className={ContextStyles.context__btn}
+                        onClick = {() => {this.toggleContextMenu()} }
+                    >...
+                    </button>
+                    {this.state.menuOpen ? 
                         <div>
                             
                             <ul  
@@ -56,19 +59,21 @@ class ContextMenu extends React.Component  {
                             >
                                 {this.getItems(this.props.items)}
                             </ul>
-
-                            <div 
-                                className="overlay transparent" 
-                                onClick={() => {this.toggleContextMenu()}}
-                            />
                         </div>
                     : 
                         <div />
+                    }
+                </div>
+                {this.state.menuOpen ?
+                    <div 
+                        className="overlay" 
+                        onClick={() => {this.toggleContextMenu()}}
+                            />
+                    : 
+                        <div /> 
                 }
             </div>
         )
     }
 }
 export default ContextMenu;
-
-/* HTML Formatted */

@@ -21,7 +21,6 @@ export function _addContact(phoneBookData, contactData){
 export function _updateContact(phoneBookData, contactData, id){
     let index = phoneBookData.findIndex((item => item._id === id));
 
-     //Update object's name property.
      phoneBookData[index].name = contactData.name;
      phoneBookData[index].company = contactData.company;
      phoneBookData[index].phone = contactData.phone;

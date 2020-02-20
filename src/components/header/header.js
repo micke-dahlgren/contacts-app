@@ -54,5 +54,3 @@ const Header = (props) => (
 )
 
 export default Header;
-
-/* HTML Formatted */

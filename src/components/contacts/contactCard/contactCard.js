@@ -5,7 +5,7 @@ import ContextMenu from '../../contextMenu/contextMenu';
 
 const contactCard = (props) => (    
     
-    <div className={`${contactCardStyles.container} card`}>
+    <div className={contactCardStyles.container}>
    
         <div className={`${contactCardStyles.child__name} ${contactCardStyles.center}`}>
             <div className={contactCardStyles.text__primary}>{props.contactData.name}</div>
@@ -20,11 +20,11 @@ const contactCard = (props) => (
             <ContextMenu
                 items={[
                     {
-                    label: 'Edit',
+                    label: 'Redigera',
                     onClick: () => props.setFormWindow('open', props.contactData._id),
                     },
                     {
-                    label: 'Delete',
+                    label: 'Ta bort',
                     onClick: () => props.deleteContact(props.contactData._id),
                     }
             ]} 
