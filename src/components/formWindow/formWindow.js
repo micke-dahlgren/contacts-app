@@ -76,78 +76,59 @@ class FormWindow extends React.Component {
 
   getButtonState = () => {
     if(!this.state.validForm){
-      return(<div className={`btn btn--inactive ${formWindowStyles.btn__right}`}>Spara</div>);
+      return(<div className="btn btn--inactive">Spara</div>);
     }else{
-      return(<button className={`btn btn--primary ${formWindowStyles.btn__right}`} type="submit">Spara</button>);
+      return(<button className="btn btn--primary" type="submit">Spara</button>);
     }
     
   }
 
   render() {
     return (
-      <div 
-        className={formWindowStyles.parent} >
+      <div>
         <div className={formWindowStyles.container}>
 
           <form 
-              onSubmit={this.handleSubmit}
-            >
-              <div className={formWindowStyles.item}>
-                <label className={formWindowStyles.label}>
-                  Namn:
-                  <br></br>
-                  <input
-                    className={formWindowStyles.input}
-                    type="text"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.handleInputChange}
-                  />
-                </label>
-              </div>
+            onSubmit={this.handleSubmit}
+          >
 
-              <div className={formWindowStyles.item}>
-              <label className={formWindowStyles.label}>
-                  Företag:
-                  <br></br>
-                  <input
-                   className={formWindowStyles.input}
-                    type="text"
-                    name="company"
-                    value={this.state.company}
-                    onChange={this.handleInputChange}
-                  />
-                </label>
-              </div>
+            <label className={formWindowStyles.item}>
+              Name
+              <input
+                className={formWindowStyles.input}
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+              />
+            </label>
 
-              <div className={formWindowStyles.item}>
-                <label className={formWindowStyles.label}>
-                  Nummer:
-                  <br></br>
-                  <input
-                    className={formWindowStyles.input}
-                    type="text"
-                    name="phone"
-                    value={this.state.phone}
-                    onChange={this.handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={`${formWindowStyles.item} ${formWindowStyles.btn}`}>
-                <button className={`btn btn--secondary ${formWindowStyles.btn__left}`}
-                  onClick={() => {this.props.setFormWindow('closed', '')}}
-                  onKeyDown={() => {this.props.setFormWindow('closed', '')}}
-                >Avbryt
-                </button>
-                {this.getButtonState()}
-              </div>
+            <label  className={formWindowStyles.item}>
+              Company
+              <input
+                className={formWindowStyles.input}
+                type="text"
+                name="company"
+                value={this.state.company}
+                onChange={this.handleInputChange}
+              />
+            </label>
 
-              
-              
-            </form>
-    
-
-
+            <label  className={formWindowStyles.item}>
+              Number
+              <input
+                className={formWindowStyles.input}
+                type="text"
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <div className={formWindowStyles.btnContainer}>
+              {this.getButtonState()}
+            </div>
+          </form>
+      
         </div>
         <div 
           className="overlay" 
@@ -160,3 +141,5 @@ class FormWindow extends React.Component {
 
 }
 export default FormWindow;
+
+/* HTML Formatted */

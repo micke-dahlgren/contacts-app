@@ -158,7 +158,9 @@ ul, li{
   .transparent{
     background-color: transparent;
   }
-
+  .floatRight{
+    float: right;
+  }
   .card{
     /*overflow hidden makes sure children don't override border-radius*/
     overflow:hidden;
