@@ -76,18 +76,94 @@ class FormWindow extends React.Component {
 
   getButtonState = () => {
     if(!this.state.validForm){
-      return(<div className="btn btn--inactive">Submit</div>);
+      return(<div className={`btn btn--inactive ${formWindowStyles.btn__right}`}>Spara</div>);
     }else{
-      return(<button className="btn btn--primary" type="submit">Submit</button>);
+      return(<button className={`btn btn--primary ${formWindowStyles.btn__right}`} type="submit">Spara</button>);
     }
     
   }
 
   render() {
     return (
-      <div>
+      <div 
+        className={formWindowStyles.parent} >
         <div className={formWindowStyles.container}>
 
+          <form 
+              onSubmit={this.handleSubmit}
+            >
+              <div className={formWindowStyles.item}>
+                <label className={formWindowStyles.label}>
+                  Namn:
+                  <br></br>
+                  <input
+                    className={formWindowStyles.input}
+                    type="text"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleInputChange}
+                  />
+                </label>
+              </div>
+
+              <div className={formWindowStyles.item}>
+              <label className={formWindowStyles.label}>
+                  Företag:
+                  <br></br>
+                  <input
+                   className={formWindowStyles.input}
+                    type="text"
+                    name="company"
+                    value={this.state.company}
+                    onChange={this.handleInputChange}
+                  />
+                </label>
+              </div>
+
+              <div className={formWindowStyles.item}>
+                <label className={formWindowStyles.label}>
+                  Nummer:
+                  <br></br>
+                  <input
+                    className={formWindowStyles.input}
+                    type="text"
+                    name="phone"
+                    value={this.state.phone}
+                    onChange={this.handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={`${formWindowStyles.item} ${formWindowStyles.btn}`}>
+                <button className={`btn btn--secondary ${formWindowStyles.btn__left}`}
+                  onClick={() => {this.props.setFormWindow('closed', '')}}
+                  onKeyDown={() => {this.props.setFormWindow('closed', '')}}
+                >Avbryt
+                </button>
+                {this.getButtonState()}
+              </div>
+
+              
+              
+            </form>
+    
+
+
+        </div>
+        <div 
+          className="overlay" 
+          onClick={() => {this.props.setFormWindow('closed', '')}}
+          onKeyDown={() => {this.props.setFormWindow('closed', '')}}
+          />
+      </div>
+    )
+  }
+
+}
+export default FormWindow;
+
+/*    return (
+      <div >
+        <div className={formWindowStyles.container}>
           <form 
             onSubmit={this.handleSubmit}
           >
@@ -125,17 +201,11 @@ class FormWindow extends React.Component {
             
           </form>
       
-        </div>
+          </div>
         <div 
           className="overlay" 
           onClick={() => {this.props.setFormWindow('closed', '')}}
           onKeyDown={() => {this.props.setFormWindow('closed', '')}}
           />
       </div>
-    )
-  }
-
-}
-export default FormWindow;
-
-/* HTML Formatted */
+    ) */

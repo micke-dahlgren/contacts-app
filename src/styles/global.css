@@ -10,8 +10,12 @@
     --background-variant:rgba(255,255,255,0.7);
     --primary:  #515ada;
     --primary-variant:  #32388f;
-    --secondary:  #188fd4;
-    --secondary-variant:  #0d689c;
+    --secondary:  #969696;
+    --secondary-variant:  #707070;
+
+    --textField:rgb(226, 226, 226);
+    --textField-hover:rgb(211, 211, 211);
+    --textField-focus:rgb(168, 168, 168);
     --disabled:  #cfcfcf;
     --onDisabled:  #a3a3a3;
     --onPrimary:white;
@@ -23,7 +27,7 @@
     --transparent:rgba(0,0,0,0.0);
 
     /* SIZING - LAYOUT */
-    --outer__margin-col: 10vw;
+    --outer__margin-col: 14vw;
     --outer__margin-row: 10vh;
     --inner__padding-col: 3rem;
     --inner__padding-row: 2.5rem;
@@ -37,7 +41,7 @@
 
     /* SIZING - CONTENT*/
     --content__maxHeight: calc(
-      100vh - ( var(--header__height) + (2*var(--outer__margin-row) + 2*(var(--inner__padding-row))))
+      100vh - ( var(--header__height) + (var(--outer__margin-row) + 2*(var(--inner__padding-row))))
     );
     --content__padding-row: 1rem;
     --content__padding-col: 2rem;
@@ -55,9 +59,12 @@ html{
   color: var(--dark-gray);
   
 }
-ul, h1{
+h1{
   margin:0px;
   padding:0px;
+}
+ul, li{
+  list-style-type: none;
 }
 /*==========
  SCROLLBAR 
@@ -70,18 +77,18 @@ ul, h1{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: var(--transparent);
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--onPrimary);
+  background: var(--secondary);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary)
+  background: var(--secondary-variant)
 }
 
 /*==========
@@ -99,6 +106,10 @@ ul, h1{
     background-color:var(--primary);
     color:var(--onPrimary);
   }
+  .btn--primary:hover{
+    background-color:var(--primary-variant);
+
+  }
 
  .btn--delete{
     background-color:var(--error);
@@ -106,7 +117,16 @@ ul, h1{
   }
 
   .btn--secondary{
-    background-color:var(--secondary); 
+    background-color:var(--background);
+    border-style: solid; 
+    border-width: 0.1rem;
+    border-spacing: -0.1rem;
+    border-color: var(--secondary);
+    color: var(--secondary);
+  }
+  .btn--secondary:hover{
+    background-color:var(--secondary);
+
     color: var(--onSecondary);
   }
 
@@ -142,9 +162,8 @@ ul, h1{
   .card{
     /*overflow hidden makes sure children don't override border-radius*/
     overflow:hidden;
-    
-    box-shadow: 2px 2px 20px 2px var(--shadow);
-    border-radius: 16px;
+    box-shadow: 2px 2px 10px 1px var(--shadow);
+    border-radius: 4px;
     padding:0px;
     margin:0px;
   }

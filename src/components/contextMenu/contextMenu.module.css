@@ -1,40 +1,44 @@
 
-/*
+
 .context__btn{
     cursor:pointer;
-    padding-top: 40%;
-    padding-bottom: 60%;
-    width:48px;
-    text-align: center;
+
+    border:none;
+    
+    background-color: var(--background);
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
 }
 
 .menuContainer{
     position: absolute;
     z-index:1004;
-    background-color:white;
-    box-shadow: 2px 2px 6px var(--shadow-color) ;
+    background-color: var(--background);
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px 2px var(--shadow);
+    margin:0px;
+    padding:0px;
+    overflow:hidden;
 }
 
 .item{
+    all:unset;
     width:100%;
+    padding:0.6rem;
 }
 
 .item:hover{
-    background-color: var(--call-to-action);
-    color:white;
+    background-color: var(--primary);
+    color:var(--onPrimary)
 }
-*/
+
 
 
 /*
 
-.context__btn{
-    cursor:pointer;
-    padding-top: 40%;
-    padding-bottom: 60%;
-    width:48px;
-    text-align: center;
-}
+
 
 .menuContainer{
     position: absolute;

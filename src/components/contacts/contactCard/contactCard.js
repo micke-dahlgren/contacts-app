@@ -5,12 +5,18 @@ import ContextMenu from '../../contextMenu/contextMenu';
 
 const contactCard = (props) => (    
     
-    <div className={contactCardStyles.card}>
-        <div className={contactCardStyles.columns} >
-
-            <p className={contactCardStyles.name}>{props.contactData.name}</p>
-            <p className={contactCardStyles.company}>{props.contactData.phone}</p>
-            <p className={contactCardStyles.company}>{props.contactData.company}</p>
+    <div className={`${contactCardStyles.container} card`}>
+   
+        <div className={`${contactCardStyles.child__name} ${contactCardStyles.center}`}>
+            <div className={contactCardStyles.text__primary}>{props.contactData.name}</div>
+        </div>
+        <div className={`${contactCardStyles.child__phone} ${contactCardStyles.center}`}>
+            <div className={contactCardStyles.text__secondary}>{props.contactData.phone}</div>
+        </div>
+        <div className={`${contactCardStyles.child__company} ${contactCardStyles.center}`}>
+            <div className={contactCardStyles.text__secondary}>{props.contactData.company}</div>
+        </div>
+        <div className={`${contactCardStyles.child__options} ${contactCardStyles.center}`}>
             <ContextMenu
                 items={[
                     {
@@ -22,8 +28,12 @@ const contactCard = (props) => (
                     onClick: () => props.deleteContact(props.contactData._id),
                     }
             ]} 
-            />
-        </div>
+            />  
+        </div> 
+            
+            
+
+
     </div>
 )
 

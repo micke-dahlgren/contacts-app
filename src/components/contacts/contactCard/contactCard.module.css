@@ -1,72 +1,59 @@
 
+.container{
+  display: grid;
+  background-color: var(--background);
+  margin: var(--content__padding-row) var(--inner__padding-col);
+  grid-template-columns: 1fr 1fr 1fr 4rem;
+  grid-template-rows: auto;
+}
+
+.child__name{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+
+  margin-left: var(--content__padding-col);
+}
+
+.child__phone{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.child__company{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.center{
+  padding: 1.5rem 0px;
+}
+
+
+.child__options{
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.text__primary{
+  text-align: left;
+  font-weight: 500;
+}
+.text__secondary{
+  color:var(--secondary);
+  text-align: left;
+
+}
+
+.options{
+  cursor: pointer;
+
+}
   
-  /*
-  .card {
-    background:white;
-    box-shadow: 2px 2px 6px var(--shadow-color) ;
-  }
-  .columns{
-    background-color: tomato;
-  }
-  .name{
-    text-align: left;
-  }
-  .company{
-
-    text-align: left;
-
-  }
-
-  .options{
-    cursor: pointer;
-  }
-*/
-  /*
-.card {
-    transition: ease-in-out;
-    transition-duration: 200ms;
-    background:white;
-    box-shadow: 2px 2px 6px var(--shadow-color) ;
-    width: 100%;
-    border-radius: 4px;
-    margin-bottom: 1vw;
-    padding-left: 1.5vw;
-  }
-  .columns{
-    display: flex;
-    flex-direction: row;
-  }
-  .name{
-    padding-top: 1.5vw;
-    padding-bottom: 1.5vw;
-    width: 30%;
-    font-size: var(--normal-font-size);
-    font-weight:600;
-    letter-spacing: 1px;
-    text-align: left;
-    padding-right: 1vw;
-    margin:0px;
-  }
-  .company{
-    padding-top: 1.5vw;
-    padding-bottom: 1.5vw;
-    width: 30%;
-    font-size: var(--normal-font-size);
-    font-weight:500;
-    color: var(--light-gray);
-    text-align: left;
-    padding-right: 1vw;
-    margin:0px;
-  }
-
-  .options{
-    cursor: pointer;
-    font-size:var(--normal-font-size);
-    font-weight:800;
-    letter-spacing: 1px;
-    color: var(--light-gray);
-    float:right;
-    padding-right: 1.5vw;
-    margin:0px;
-  }
-  */
