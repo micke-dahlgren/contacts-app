@@ -3,7 +3,7 @@ import useIsComponentVisible from "../hooks/useIsComponentVisible"
 
 import Button from "./Button"
 
-const AddContactDropDown = ({ label, component }) => {
+const Dropdown = ({ label, component }) => {
   const {
     ref,
     isComponentVisible,
@@ -23,4 +23,4 @@ const AddContactDropDown = ({ label, component }) => {
   )
 }
 
-export default AddContactDropDown
+export default Dropdown

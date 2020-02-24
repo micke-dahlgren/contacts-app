@@ -26,6 +26,7 @@ const IndexPage = () => {
 
   const handleOnRemove = contactId =>
     setContacts(contacts.filter(contact => contact._id !== contactId))
+
   return (
     <div>
       <div className={styles.header}>
