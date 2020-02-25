@@ -12,7 +12,9 @@ import Modal from "../components/Modal"
 import styles from "./index.module.scss"
 
 const IndexPage = () => {
-  const [contacts, setContacts] = useState(phoneBookJSON)
+  
+  // setting state variables
+  const [contacts, setContacts] = useState(phoneBookJSON) 
   const [editModalVisible, setEditModalVisible] = useState(false)
   const [editModalData, setEditModalData] = useState({})
 
@@ -21,7 +23,12 @@ const IndexPage = () => {
       _id: guidGenerator(),
       ...contactData,
     }
-    setContacts([contact, ...contacts])
+    /* 
+    ?
+      [newEntry, ...Array] (spread operator) === Array.unshift(newEntry) 
+      Spread operator better practice?
+    */
+    setContacts([contact, ...contacts]) 
   }
 
   const showEditModal = contact => () => {
@@ -37,17 +44,38 @@ const IndexPage = () => {
     const index = contacts.findIndex(
       contact => contact._id === editedContact._id
     )
+    /* 
+
+    */
     setContacts(
       Object.assign([], contacts, {
         [index]: editedContact,
-      })
+      })                               
     )
+    /* 
+      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+      const returnedTarget = Object.assign(target, source); 
+      Properties in the target object are overwritten by properties in the sources if they have the same key.
+    ?
+      Why Object.assign(emptyArray, contactsArray, {newContactObject}) ?
+      Would Object.assign(contactsArray,{newContactObject}) work ? 
+    */
+
     setEditModalVisible(false)
-    setEditModalData({})
+    setEditModalData({}) // clearing modal data
   }
 
-  const removeContacts = contactId => () =>
+  const removeContacts = contactId => () =>{
     setContacts(contacts.filter(contact => contact._id !== contactId))
+  }
+  /*
+  ?
+    const myFunc = (args) => { ... dostuffWith(args) }
+    !==
+    const myFunc = args => () =>  { ... dostuffWith(args) }
+
+    What is the difference?
+  */
 
   return (
     <div>
@@ -67,6 +95,11 @@ const IndexPage = () => {
             removeContact={removeContacts}
           />
         )}
+        /*
+        ?
+          renderItem is a callback function. Why define inline?
+        */
+
       />
       <Modal visible={editModalVisible}>
         <ContactForm data={editModalData} onSubmit={editContact} />

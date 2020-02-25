@@ -25,6 +25,10 @@ const Dropdown = ({ label, component, children, type = "default" }) => {
   }
 
   return (
+    /*
+    ?
+      {Boolean && (<div>)} How does this work?
+    */
     <div>
       <Button label={label} onClick={toggleDropdown} />
       {isComponentVisible && (

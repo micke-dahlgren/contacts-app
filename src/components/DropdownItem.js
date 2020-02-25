@@ -5,7 +5,11 @@ import styles from "./DropdownItem.module.scss"
 const DropdownItem = ({ label, onClick, hideDropdown }) => {
   const handleOnClick = () => {
     onClick()
-    if (hideDropdown) hideDropdown()
+    /*
+    ?
+     Where is hideDropdown() passed in?
+    */
+    if (hideDropdown) hideDropdown() 
   }
   return (
     <div className={styles.dropdownItem} onClick={handleOnClick}>
