@@ -1,0 +1,12 @@
+.dropdownItem {
+  background: white;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 8px 16px;
+  height: 32px;
+  width: 120px;
+  &:hover {
+    background: blue;
+  }
+}
