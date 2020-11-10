@@ -1,6 +1,6 @@
 
 <h1 align="center">
-  Contact book
+  Contact App
 </h1>
 
 Local JSON used to read data.
