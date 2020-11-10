@@ -1,16 +1,15 @@
 
 <h1 align="center">
-  YABS Frontend-Test
+  Contact book
 </h1>
 
-Kontaktboksapp.
-Datan läses in från lokal JSON.
-Funktionalitet:
-- Filtrera kontakter efter kollegor / vänner.
-- Ta bort / lägg till / redigera kontakter.
+Local JSON used to read data.
+Functionalities
+- Filter contacts
+- remove / add / edit contacts.
 
 
-## 🚀 För att köra
+## 🚀 Run
 
 
     ```shell
